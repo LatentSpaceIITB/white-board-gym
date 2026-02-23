@@ -1,0 +1,9 @@
+opencv-python>=4.8.0
+numpy>=1.26.0
+openai>=2.0.0
+openai-whisper>=20240930
+Pillow>=9.2.0
+scipy
+transformers>=4.40.0
+peft>=0.10.0
+accelerate>=0.27.0
