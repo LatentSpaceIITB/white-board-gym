@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatial-rl-stage1"
+version = "0.1.0"
+description = "MVP implementation of Stage 1 spatial vocabulary acquisition via visual RL."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "tqdm>=4.66"
+]
+
+[project.optional-dependencies]
+ml = [
+  "torch>=2.3",
+  "torchvision>=0.18"
+]
+clip = [
+  "transformers>=4.46",
+  "accelerate>=1.1"
+]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.6"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

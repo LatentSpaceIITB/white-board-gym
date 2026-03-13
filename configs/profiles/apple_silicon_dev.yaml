@@ -1,0 +1,29 @@
+reward:
+  visual_judge:
+    backend: heuristic
+    cache_path: runs/visual_judge_cache_apple.json
+
+env:
+  width: 192
+  height: 192
+  tmax: 12
+
+policy:
+  hidden_dim: 192
+  image_feature_dim: 96
+  concept_feature_dim: 96
+
+train:
+  device: mps
+  dtype: float32
+  updates: 80
+  concepts_per_update: 1
+  group_size: 2
+  learning_rate: 1.0e-4
+  kl_weight: 0.02
+  eval_every: 10
+  checkpoint_every: 20
+
+eval:
+  concepts: 6
+  rollouts_per_concept: 1

@@ -1,0 +1,16 @@
+numpy>=1.26
+Pillow>=10.0
+PyYAML>=6.0
+tqdm>=4.66
+
+[clip]
+transformers>=4.46
+accelerate>=1.1
+
+[dev]
+pytest>=8.3
+ruff>=0.6
+
+[ml]
+torch>=2.3
+torchvision>=0.18

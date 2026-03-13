@@ -1,0 +1,17 @@
+env:
+  width: 256
+  height: 256
+  tmax: 20
+
+train:
+  updates: 180
+  concepts_per_update: 2
+  group_size: 4
+  learning_rate: 8.0e-5
+  kl_weight: 0.02
+  eval_every: 15
+  checkpoint_every: 45
+
+eval:
+  concepts: 10
+  rollouts_per_concept: 2

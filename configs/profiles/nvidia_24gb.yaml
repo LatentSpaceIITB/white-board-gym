@@ -1,0 +1,21 @@
+reward:
+  visual_judge:
+    backend: clip
+    model_name: openai/clip-vit-base-patch32
+    cache_path: runs/visual_judge_cache_nvidia.json
+
+policy:
+  hidden_dim: 384
+  image_feature_dim: 192
+  concept_feature_dim: 192
+
+train:
+  device: cuda
+  dtype: bfloat16
+  updates: 300
+  concepts_per_update: 2
+  group_size: 4
+  learning_rate: 5.0e-5
+  kl_weight: 0.015
+  eval_every: 20
+  checkpoint_every: 50

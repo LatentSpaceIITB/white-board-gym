@@ -1,0 +1,63 @@
+experiment:
+  seed: 13
+  output_root: runs
+  run_name: null
+
+data:
+  train_concepts_path: data/concepts_train.txt
+  val_concepts_path: data/concepts_val.txt
+
+env:
+  width: 256
+  height: 256
+  background_color: "#ffffff"
+  tmax: 20
+
+reward:
+  alpha: 0.7
+  beta: 0.3
+  visual_judge:
+    backend: heuristic
+    cache_path: null
+
+policy:
+  backend: structured_torch
+  hidden_dim: 256
+  image_encoder_channels: [16, 32, 64]
+  image_feature_dim: 128
+  concept_vocab_size: 4096
+  concept_embed_dim: 64
+  concept_feature_dim: 128
+  default_temperature: 1.0
+  color_palette:
+    - "#1f2933"
+    - "#0ea5e9"
+    - "#22c55e"
+    - "#ef4444"
+    - "#f59e0b"
+    - "#6366f1"
+  text_vocab:
+    - "label"
+    - "part"
+    - "input"
+    - "output"
+    - "process"
+
+train:
+  device: auto
+  dtype: float32
+  updates: 200
+  concepts_per_update: 2
+  group_size: 4
+  learning_rate: 1.0e-4
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  kl_weight: 0.02
+  kl_anneal_start: 120
+  kl_anneal_end: 200
+  eval_every: 20
+  checkpoint_every: 50
+
+eval:
+  concepts: 10
+  rollouts_per_concept: 2
